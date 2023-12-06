@@ -1,0 +1,10 @@
+.menuc {
+    background-color: blueviolet;
+    width: 20%;
+    margin-top: 60px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 2;
+    min-width: 220px;
+}
