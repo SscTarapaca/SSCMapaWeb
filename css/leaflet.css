@@ -471,14 +471,14 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	margin-bottom: 20px;
 	}
 .leaflet-popup-content-wrapper {
-	width: 250px !important;
+	width: 260px !important;
 	padding: 1px;
 	text-align: left;
 	border-radius: 12px;
 	}
 .leaflet-popup-content {
 	width: 100% !important;
-	margin: 13px 19px;
+	margin: 12px 12px;
 	line-height: 1.4;
 	}
 .leaflet-popup-content p {

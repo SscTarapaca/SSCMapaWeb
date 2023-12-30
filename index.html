@@ -703,8 +703,8 @@ function mymap() {
                 "<tr><td><strong>Categoría:</strong></td><td>" + feature.properties.Categorias + "</td></tr>";
               
               // Verifica si la propiedad Descrip existe antes de agregarla a la tabla
-              if (feature.properties.Descrip) {
-                description += "<tr><td><strong>Descripción:</strong></td><td>" + feature.properties.Descrip + "</td></tr>";
+              if (feature.properties.Desp) {
+                description += "<tr><td><strong>Descripción:</strong></td><td>" + feature.properties.Desp + "</td></tr>";
               }
               
               description += "</table>";
@@ -730,7 +730,19 @@ function mymap() {
       }
     localidadesLayers[localidad].addData(feature);
   }
+
+  
+  JCTson = L.geoJSON(JCT,{
+  style:{
+    fillOpacity: 0.2,
+    color: "purple",
+  }}
+  ).addTo(map);
     
+  var overlays ={
+    "Comunas": JCTson 
+  }
+
   var miniMap = new L.Control.MiniMap(L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
                 maxZoom: 20,
                 subdomains:['mt0','mt1','mt2','mt3']
@@ -767,7 +779,7 @@ function mymap() {
                   'Open Street Map': osm,
                   'Google Satellite': googleSat
                  }
-  L.control.layers(baseMaps).addTo(map);
+  L.control.layers(baseMaps, overlays).addTo(map);
                  
   let measureControl = new L.control.measure({
                   position: 'topleft',
@@ -802,7 +814,7 @@ function mymap() {
               position: 'bottomleft',
               collapsed: true,
               title: 'Leyenda',
-              symbolWidth: 50,
+              symbolWidth: 35,
               opacity: 1,
               column: 1,
               legends: [
